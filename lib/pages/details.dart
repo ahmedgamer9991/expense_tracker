@@ -166,7 +166,9 @@ class _DetailsState extends State<Details> with WidgetsBindingObserver {
                       bottom: BorderSide(color: Colors.grey.shade400),
                     ),
                     // columnSpacing: 3,
-                    headingRowColor: WidgetStatePropertyAll(Color.fromARGB(255, 176, 201, 242)),
+                    headingRowColor: WidgetStatePropertyAll(
+                      Color.fromARGB(255, 176, 201, 242),
+                    ),
                     dataTextStyle: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 15,
@@ -236,7 +238,7 @@ class _DetailsState extends State<Details> with WidgetsBindingObserver {
                                                 items[index][1] = parsed;
                                               }
                                             }
-              
+
                                             // Cleanup
                                             _itemController?.dispose();
                                             _priceController?.dispose();
@@ -244,7 +246,9 @@ class _DetailsState extends State<Details> with WidgetsBindingObserver {
                                             _priceController = null;
                                             editingRow = null;
                                           });
-                                          await dataPersistence.saveTojson(data);
+                                          await dataPersistence.saveTojson(
+                                            data,
+                                          );
                                         },
                                       ),
                                       IconButton(
@@ -254,7 +258,7 @@ class _DetailsState extends State<Details> with WidgetsBindingObserver {
                                             // Revert changes
                                             items[index][0] = _originalItem;
                                             items[index][1] = _originalPrice;
-              
+
                                             // Cleanup
                                             _itemController?.dispose();
                                             _priceController?.dispose();
@@ -262,7 +266,9 @@ class _DetailsState extends State<Details> with WidgetsBindingObserver {
                                             _priceController = null;
                                             editingRow = null;
                                           });
-                                          await dataPersistence.saveTojson(data);
+                                          await dataPersistence.saveTojson(
+                                            data,
+                                          );
                                         },
                                       ),
                                     ],
@@ -278,7 +284,9 @@ class _DetailsState extends State<Details> with WidgetsBindingObserver {
                                             _originalItem = item;
                                             _originalPrice = price;
                                             _itemController =
-                                                TextEditingController(text: item);
+                                                TextEditingController(
+                                                  text: item,
+                                                );
                                             _priceController =
                                                 TextEditingController(
                                                   text: price.toString(),
@@ -287,7 +295,10 @@ class _DetailsState extends State<Details> with WidgetsBindingObserver {
                                         },
                                       ),
                                       IconButton(
-                                        icon: const Icon(Icons.delete, size: 23,),
+                                        icon: const Icon(
+                                          Icons.delete,
+                                          size: 23,
+                                        ),
                                         onPressed: () => deleteRow(index),
                                       ),
                                     ],
@@ -297,7 +308,9 @@ class _DetailsState extends State<Details> with WidgetsBindingObserver {
                         );
                       }),
                       DataRow(
-                        color: WidgetStatePropertyAll(Color.fromARGB(255, 176, 201, 242)),
+                        color: WidgetStatePropertyAll(
+                          Color.fromARGB(255, 176, 201, 242),
+                        ),
                         cells: [
                           DataCell(
                             Text(
